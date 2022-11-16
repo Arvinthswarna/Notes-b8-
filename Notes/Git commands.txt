@@ -1,0 +1,17 @@
+"Git commands for pushing the codes:             
+
+git init 
+
+git add .
+
+git commit -m "   "
+
+git remote add origin <Link>
+
+git push origin main/master
+
+git config --global user.name"   "
+
+git config --global user.email"  "
+
+git push --set-upstream origin master

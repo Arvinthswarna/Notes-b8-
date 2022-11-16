@@ -1,0 +1,739 @@
+
+
+
+===========================================================
+
+JAVA REVISION:
+
+JAVA :
+
+Programming Language
+
+object oriented
+
+JAVA SE(Java standard edition)
+
+JAVA EE(Java Enterprise edition)
+
+JAVA ME(Java Micro Edition)->mobile apps
+
+Web Applications:
+--------------------
+
+1.Online Shopping
+
+2.Online Banking
+
+3.Online Ticketing
+
+=====================
+apps works over the browser through internet
+
+Installation:
+==============
+
+Install JDK(Java development kit)
+        JVM(Java Virtual Machine)
+        
+
+
+
+After installation,
+
+In command prompt type java -version
+                       javac -version
+
+
+Revision Schedule:
+
+1.Helloworld execution
+
+2.Variables
+
+3.Opearators
+
+4.Conditions
+
+5.loops
+
+6.Functions
+
+7.Functions with parameters
+
+8.Oops:
+
+  1.class
+   
+  2.objects
+
+  3.Inheritance
+
+  4.Polymorphism
+
+  5.Encapsulation
+
+  6.Abstraction
+
+  7.Interface
+
+9.Exceptions
+
+10.File handling
+
+11.Threads
+
+12.Collections
+  
+
+
+
+
+**************************To execute in cmd,
+
+//javac HelloWorld.java
+
+//.class file will be created
+
+//java HelloWorld
+
+//o/p will be displayed welcome to java.
+===================================================
+
+
+Eclipse IDE(Integrated development Environment):
+
+Polymorphism:
+--------------
+
+poly : many
+morphic: behaviour
+
+Function Overloading:
+----------------------
+add(int a,int b){
+}
+
+add(int a,int b,int c){
+}
+
+obj.add(20,30,40);
+obj.add(40,40)
+====================================================
+
+Rule 1:same function name,same return type but different number of parameters
+
+Rule 2:same function name,same return type ,same  number of parameters but of different type
+
+=====================================
+Function Overriding:
+===================
+void display(){
+}
+void display(){
+}
+
+Rule 1:same function name,same return type,same number of parameters
+
+Rule 2:Inheritance has to happen.
+
+=====================================
+
+Exceptions:
+==================
+
+try catch 
+finally
+throw throws
+custom exception
+
+
+File Handling
+===============
+
+Threads:
+==========
+
+Thread is a light weight sub process
+
+THread can be created in java by two ways:
+
+1.By inheriting Thread class
+
+2.By implementing Runnable interface
+
+Spring boot:
+=============
+
+ORM - object relational mapping
+
+Java persistence API follows ORM
+
+POJOs
+
+JPA
+
+Controllers
+
+CRUD in SpringBoot + MySQL
+
+1.application.properties(specified mysql details)
+
+2.POJO: User
+
+       Entity,Table,Id,column Names
+       Default and Parameterised constructor
+       setters and getters
+       to string()
+
+3.Controller:UserController
+             POST GET PUT DELETE
+
+4.Repository:
+          Interface :UserRepository
+
+
+   POSTMAN
+
+CRUD in Springboot + NoSql(mongodb)
+
+localhost : 8080
+
+Spring HATEOAS:
+===================
+
+     Hypermedia as the engine of Application State.Its a library of APIS
+
+     GET:http://localhost:8080/users/fetch/1
+
+================================================================================================================
+                                      MONOLITHIC ARCHITECTURE
+SpringBoot + mySQL            
+----------------------
+
+Tomcat apache server ->8080                                                                                 MySql  ->3306
+ 											      username:root
+											      password:Arvinth@97
+											      database:sampledb
+                                                                                              
+		POST  ->http://localhost:8080/user/create
+		GET   ->http://localhost:8080/user/fetch
+USERS:		GET   ->http://localhost:8080/user/fetch_user/{id}	
+		PUT   ->http://localhost:8080/user/update_user/{id}
+		DELETE->http://localhost:8080/user/delete_user/{id}
+
+
+              Products:
+
+
+	        POST  ->http://localhost:8080/product/create
+		GET   ->http://localhost:8080/product/fetch
+		GET   ->http://localhost:8080/product/fetch_product/{id}	
+		PUT   ->http://localhost:8080/product/update_product/{id}
+		DELETE->http://localhost:8080/product/delete_product/{id}
+
+================================================================================================================================
+
+
+                     MICRO SERVICES ARCHITECTURE
+Users ------->3001 ------>usersdb
+
+products----->3002------->productsdb
+
+payments----->3003------->paymentsdb
+
+
+Spring file in intellij:
+
+start.spring.io
+===============
+
+4 imports:
+
+1.Lombok
+
+2.SpringDataJpa
+
+3.SpringWeb
+
+4.H2 Database
+
+
+MICRO SERVICE ARCHITECTURE:
+==============================
+Users ----->3001 -------->usersdb(storing in H2 database(temporary))
+ userID
+
+ email
+
+ password
+
+Products--->3002------->productsdb
+
+productId
+
+productName
+
+productQty
+
+productCost
+
+userId(referring to users 3001 port using RestTemplate function)
+
+
+Get Products(3002)(by userId while user service running on port 3001)
+==============================================================================
+
+Manual dependencies:
+
+Adding Dependencies:(cloud gateway)
+--------------------
+
+
+<spring-cloud.version>2021.0.4</spring-cloud.version>
+
+<dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+
+
+
+
+
+ <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+Hystrix dependency:(cloud gateway)
+==================
+
+<dependency>   <groupId>org.springframework.cloud</groupId>   <artifactId>spring-cloud-starter-hystrix</artifactId></dependency>
+
+
+
+
+Hystrix dashboard dependencies:
+===============================
+
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+<version>2.0.0.RELEASE</version>
+</dependency>
+===================================================================
+Eureka server:
+
+localhost:8761
+
+localhost:9295/hystrix
+
+http://localhost: 3000/actuator/hystrix.stream
+
+=====================================================================
+
+
+
+Microservices:
+==============
+
+USER-SERVICE:(To create spring project go to start.spring.io
+                                             ================
+-------------
+
+port no :3001
+
+Dependencies for user-service:
+
+1. Spring Web
+
+2. Spring Data Jpa
+
+3. Lombok
+
+4.H2 database(Temporary database)
+
+PRODUCT-SERVICE:
+----------------
+
+PORT NO: 3002
+
+Dependencies for product-service:
+
+1. Spring Web
+
+2. Spring Data Jpa
+
+3. Lombok
+
+4.H2 database(Temporary database)
+
+
+Service-Registry:
+==================
+
+Service registry is nothing but starting the Eureka server in port 8761.Eureka server will store all the apis and services running.
+
+PORT NO :8761
+
+The eureka service will store the details of user-service and product-service here.
+
+
+Dependencies:
+==============
+
+Eureka Server
+
+Cloud Gateway:
+===============
+Cloud gateway can be divided into 2 sections
+
+1.API
+
+2.HYSTRIX
+
+API:
+=====
+
+It is nothing but api.We are accessing both the services users and products at a single port 3000. 
+The values of 3001 and 30002 can be accessed through 3000 by Application Programming interface.
+
+HYSTRIX:
+=======
+
+In Second part , if any of the services are stoppped or slow.it will show an message which was printed in fall back controller.
+
+In app.yml file we are using circuit breaker and hystrix command to achieve this
+
+
+Dependencies:
+===============
+
+1.Eureka discovery client
+
+2.Gateway
+
+3,Spring boot Actuator
+
+4.Hystrix dependencies(manuallly pasting in pom.xml file.
+
+
+HYSTRIX-DASHBOARD:
+==================
+
+PORT: 9295
+
+
+localhost:9295/hystrix
+
+Within this site we have to enter http://localhost:3000/actuator/hystrix.stream.
+
+
+Dependencies:
+==============
+
+1.Eureka discovery client
+
+2.Hystrix dashboard dependencies(manually pasting in pom.xml
+
+
+Hystrix dashboard is to manage the overall services.Hystrix dashboard will display the health,currrent status of the services.
+
+It is used for monitoring all the services.
+
+
+
+
+
+
+  
+
+Feign client:
+=============
+
+     Its a declarative web service client.
+     It makes writing webservices clients easier.
+
+
+    To work with feign client we have to create an interface and annotate it.
+
+    (start.spring.io)
+
+     APIS ----->3000
+
+    Feign-client----->3001.
+
+
+Project feign -client -demo dependencies:
+=======================================
+
+1.Open Feign
+
+2.Spring Web
+
+
+Project Test-demo dependencies:
+====================================
+
+1.Open Feign
+
+2.Spring Web
+
+
+
+Postman Syntax:
+===============
+
+http://localhost:3001/demo/username/
+
+http://localhost:3000/users/create
+
+http://localhost:8080/products/delete_product/2
+
+
+
+
+Swagger:
+=========
+
+Dependencies:
+-------------
+
+
+
+<dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+
+
+http://localhost:3001/swagger-ui.html   
+Swaggerv is nothing but gives information about the fields of the API.
+
+
+
+Reactive Programming:
+======================
+
+   Building asynchronous,non-blocking, and event driven applications.which can be easily scalable
+
+
+   Manually----->Online Transactions-------->UPI Payments
+                   (web)                      (mobile banking)
+
+
+  Event:
+  ========
+       Each event is pub;ished to subscribers while ensuring that subscribers are never overwhelmed.
+       
+       ===>Mono and Flux are implementations of the publisher interface.
+
+       SpringBoot Apps
+       Spring Webflux
+       Spring Reactive Data:MongoDB
+       Spring security :Reactive Webflux
+       Lombok
+
+Springboot Concepts:
+======================
+
+1.Webservices Concepts,SOA Architecture,SOAP vs REST,REST Webservices,Introduction to RMM
+
+2.Spring REST +Spring Boot.Introduction to SpringBoot performing POST,GET,DELETE,PUT
+
+3.Spring Boot-Handling correct error codes,Generic exception,HATEOS,Content Negotiation
+
+4.SpringBoot with MongoDB,Performing CRUD Operation
+
+5.Intro to Microservices Architecture,Monolithic app vs Microservice Application
+  working with microservices - Spring Cloud with Netflix tools - Eureka, RestTemplate, Feign Client-Implementation
+
+6.Swagger Docs,Introduction to [API Gateway ,Hystrix]<-Not Implementation
+
+
+Output: (APIS with MYSQL + NOSQL), MicroServices + Eureka Server + Rest Template + Feign Client + Swagger docs 
+
+
+CaseStudy:
+==========
+
+====>DEVELOP APIS(CRUD) USING SPRINGBOOT + MYSQL and NoSql.
+
+
+REVISION:
+==========
+
+Java
+MySQL
+MongoDB
+Casestudy
+
+Responsibility:
+=================
+  
+          To develop the WebApp
+
+          Handle Data
+          ============
+
+          Online Shopping:
+          ================
+
+          Registration or SignUp:
+
+                   userdata(save)
+          Login:
+
+              user details provided
+
+          UI
+                 
+                    Standard Frameworks
+                    Distributed System
+                    Responsive
+
+============================================================================================
+         Springboot:
+       =============
+
+       Auto-configuration and starter dependencies with a general idea of how spring boot simplifies 
+      java development.In Spring boot, the changes can be modified over a period of time whereas in java we acnt modify instead we have to delete and create new one.
+       Spring boot using java is have a lot of advantages like modification,Inbuild depen
+dencies makes our development much easier
+
+       
+        Generics:
+       ===========
+                   ArrayList<Integer>()numbers = new ArrayList<Integer>();<-collections
+                   ArrayList<String> names = new ArrayList<String>();
+
+     
+    Generics is the concept of different datatype of ArrayList in particular function.(we used in springboot+mysql(demo1mysql)
+     
+   In user-service project,we calling directly user class with help of response entity and rest template.
+
+      
+
+      
+
+     Encapsulation : POJO
+
+      REST APIS:
+      ==========
+               http://localhost:8080/user/create   <-----HATEOS(Its just the represenation of http).
+              
+                POST GET PUT DELETE
+
+      HTTP Status code:(error codes)
+
+          200 -OK The request succeeded.
+       
+ 	  204 - no content
+
+ 	  500 - Internal Server Error
+
+	  404 - not found
+
+
+SOAP(Simple object access protocol) VS MVC(Model View Controller Architecture):
+
+   SOAP architecture is static we cant modify the changes later.so we using mvc(model view controller architecture).
+   
+   In model view controller architecture we are make using of REST Template function. Rest comes under mvc architecture.
+
+Introduction to RMM:
+
+RICHARDSON MATURITY MODEL which classifies web apis based on their adherence and confirmity to each of the models four levels.
+
+SOA Architecture:
+====================
+
+Service oriented architecture is also static as like SOAP Architecture.We cant modify changes over the period of time.
+
+Content Negotiation:
+====================
+
+That means where we use contents, annotations that means Navigation.
+
+
+
+
+Spring WebFlux:
+================
+
+Reactive:
+---------
+    Non - blocking ,asynchronous ,event driven...............
+
+Webflux:
+=========
+   To process request webflux Config.
+   It declares the required beans and provides a higher level configuration callback API to customize it.
+
+
+Dependencies:
+===============
+1.Spring reactive web 
+
+2.lombok
+
+3.Spring data reactive MongoDB
+
+
+
+Connecting with Mongodb:
+
+dbport=27017
+dbname=webfluxdemo
+
+Mongo db runs on 27017.
+
+
+Web client:
+===========
+   building non blocking client using webclient.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+

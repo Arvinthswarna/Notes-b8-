@@ -1,0 +1,102 @@
+Mysql password: Arvinth@97
+
+Creating table name products:
+
+create table products(product_id int not null auto_increment,product_name varchar(50),product_cost varchar(50),primary key(product_id));
+
+alter table products modify product_id int auto_increment;
+
+insert into products(product_name,product_cost)values("laptop",55000);
+
+insert into products(product_name,product_cost)values("desktop",700000);
+
+insert into products(product_name,product_cost)values("tab",40000);
+
+insert into products(product_name,product_cost)values("mouse",40000);
+
+insert into products(product_name,product_cost)values("keyboard",40000);
+
+
+
+
+ create table customers(customer_id int,customer_name varchar(50),customer_phone varchar(50),customer_email varchar(50),product_id int);
+
+insert into customers(customer_id,customer_name,customer_phone,customer_email,product_id)values(101,"john",098765432,"john@gmail.com",1);
+
+insert into customers(customer_id,customer_name,customer_phone,customer_email,product_id)values(102,"Alex",9087654323,"alex@gmail.com",2);
+
+ insert into customers(customer_id,customer_name,customer_phone,customer_email,product_id)values(103,"julie",0989897654,"julie@gmail.com",3);
+
+ for inner join :
+
+select * from products
+    -> INNER JOIN customers
+    -> on products.product_id = customers.product_id;
+
+insert into products(product_name,product_cost)values("tab",20000);
+
+Left join: 
+
+returns all the rows of the table on the left side of thr join and matches row for the table on the right side of the join.
+
+for the rows for which no matching on the right side,result will be null;
+
+syntax:
+
+SELECT table1.col1,table1.col2,table2.col1,.....
+from table 1
+LEFT join table 2 
+on table1.matching_col = table2.matching_col;
+
+
+example:
+
+ select * from products
+    -> LEFT JOIN customers
+    -> on products.product_id = customers.product_id;
+
+Right Join:
+
+select * from products
+    -> RIGHT JOIN customers
+    -> on products.product_id = customers.product_id
+
+Foreign key:
+------------
+
+           A Foreign key is a field in one table that refers to PRIMARY KEY in another table.
+
+ALTER TABLE Customers
+ADD FOREIGN KEY(product_id)
+REFERENCES products(product_id);
+
+
+
+ALTER TABLE customers MODIFY customer_id varchar(50);
+ ALTER TABLE products MODIFY product_id varchar(50);
+alter table products drop foreign key fk_customers_ibfk_1;
+DROP TABLE PRODUCTS;
+
+create table products(product_id int auto_increment,product_name varchar(50),product_cost varchar(50),primary key(product_id));
+
+insert into products(product_name,product_cost)values("laptop",55000);
+
+create table customers(customer_id int,customer_name varchar(50),customer_phone varchar(50),customer_email varchar(50),product_id int);
+
+ desc products;
+
+ select * from customers;
+
+ Update user set user_added_date = "17-08-2022" where user_id = 1;
+
+ Update user set user_added_date = "18-08-2022" where user_id = 2;
+
+ select * from user;
+
+ update user set user_added_date = "19-08-2022" where user_id = 3;
+
+ insert into note(note_id,note_title,note_content,note_status,note_creation_date)values(1,"Maths","algebra","completed","20-08-2022");
+
+ insert into note(note_id,note_title,note_content,note_status,note_creation_date)values(2,"physics","Light","not completed","21-08-2022");
+
+ insert into note(note_id,note_title,note_content,note_status,note_creation_date)values(2,"chemistry","Acids","half completed","22-08-2022");

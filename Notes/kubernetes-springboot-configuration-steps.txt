@@ -1,0 +1,63 @@
+Step1: Create a new FOlder --> kubernetes-springboot
+        Step2: Copy our USER-SERVICE code into new folder created(make sure there is no resources folder or applications.yml)
+                kubernetes-springboot --> src
+                                controller
+                                entity
+                                repository
+                                service
+                                DemoApplication.java
+                              pom.xml (JDK --> 1.8)
+                              Dockerfile
+                                FROM maven:3.8.2-jdk-8
+                                WORKDIR /demo
+                                COPY . .
+                                RUN mvn clean install
+                                CMD mvn spring-boot:run
+                              deployment.yaml
+        Step3: Docker: build an image:
+                naviagte to location where we have Dockerfile.
+                docker build -t spring-boot-test .
+                To verify image is created successfully:
+                docker images
+                REPOSITORY                    TAG                 IMAGE ID       CREATED         SIZE
+                spring-boot-test              latest              ee7ba49a4352   16 hours ago    697MB
+        Step4: Push Image to DockerHub:
+                Docker login
+                create a new Repository in DockerHub with name : spring-boot-test
+                docker tag spring-boot-test saddu/spring-boot-test:latest
+                    docker push saddu/spring-boot-test:latest
+                docker images
+                REPOSITORY                    TAG                 IMAGE ID       CREATED         SIZE
+                spring-boot-test              latest              ee7ba49a4352   16 hours ago    697MB
+                saddu/spring-boot-test        latest              ee7ba49a4352   16 hours ago    697MB
+        Step5: Make sure that in deployment.yml file Image name is :  
+                image: username/repo-name:tag-name
+                image: saddu/spring-boot-test:latest    
+        Step6:  naviagte to location where we have deployment.yml
+            make sure kubctl is up and running else execute : minikube start
+        Step7: Execute : kubectl apply -f deployment.yaml
+                Verify output:
+                    service/spring-test-service created
+                    deployment.apps/spring-test-app created
+        Step8: kubectl get deployments
+            NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+            spring-test-app   2/2     2            2           5s
+        Step9: minikube service spring-test-service
+            |-----------|---------------------|-------------|---------------------------|
+            | NAMESPACE |        NAME         | TARGET PORT |            URL            |
+            |-----------|---------------------|-------------|---------------------------|
+            | default   | spring-test-service |        8080 | http://192.168.49.2:32726 |
+            |-----------|---------------------|-------------|---------------------------|
+            * Starting tunnel for service spring-test-service.
+            |-----------|---------------------|-------------|------------------------|
+            | NAMESPACE |        NAME         | TARGET PORT |          URL           |
+            |-----------|---------------------|-------------|------------------------|
+            | default   | spring-test-service |             | http://127.0.0.1:54848 |
+            |-----------|---------------------|-------------|------------------------|
+        Step10:  minikube dashboard
+        Step11: In postman:
+                POST   http://127.0.0.1:54848/users/
+                    body:
+                        {"email":"julie@gmail.com","password":"123456"}
+                GET   http://127.0.0.1:54848/users/1
+                        {"email":"julie@gmail.com","password":"123456"}             

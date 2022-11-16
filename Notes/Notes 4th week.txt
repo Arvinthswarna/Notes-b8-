@@ -1,0 +1,193 @@
+Functions:
+----------
+
+fun functionName(){
+//stmts;
+}
+functionName()
+
+function with parameters
+Returning values from a function
+
+Lambda Function:
+----------------
+     Function with no name
+     defined with {} which takes variables as parameter and body of  a function.
+     syntax:
+     -------
+            {variable->function_body}
+
+AIC: Anonymous inner class
+
+Kotlin Collections:
+===================
+Overview:
+---------
+     A collection contains a number of objects of the same type.
+     Objects in a collection are called elements or items.
+
+ Example:
+
+   All Employees in a company forms a collection.
+
+  Collection Types:
+  =================
+
+
+     1.Immutable collection(or collection):
+                 
+         Methods of immutable collection that supports read functionalities:
+
+          List listof():
+                   
+                    List is an ordered collection with access to elements by indices(integer numbers that reflect position).
+                    Elements can occur more than once in a list.
+          set  setof():
+                    
+                    Set is a collection of unique elements.It reflects the mathematical abstraction of set.
+                    (group of objects without repitition)
+
+          Map  mapof():(or dictionary)
+
+                    Set of key-value pairs.Keys are unique and each of them maps to exactly one value.
+
+     2.Mutable Collection:
+            
+         Mutable collections supports both read and write functionalities.
+
+      List ArrayList<T>()
+           arrayListof()
+           mutableListof()
+
+      Map  HashMap
+           hasmapOf()
+           Mutablemapof()
+
+     Set
+           hasSetof()
+           mutableSetof()
+
+===========================================================================================================
+17-08-2022
+------------
+Connector<- Mysql connector JDBC or ODBC(add jars into project)
+Mysql+kotlin
+-------------
+
+mysql:
+------
+
+host:local host
+port:3306
+username:root
+password:Arvinth@97
+
+
+Database: sampledb
+Table   : users
+           id      name
+            1    alex 
+            2    john
+            3    julie
+
+
+create database sampledb;
+
+use sampledb;
+
+create table users (id int auto_increment,name varchar(50),primary key(id));
+
+desc users;
+
+insert into users(name)values("alex");
+
+insert into users(name)values("john");
+
+insert into users(name)values("julie");
+
+
+db.kt
+------
+
+main(){
+//code to connect to db
+//fetch all records from users table in sampledb
+//results to print
+}
+
+output:
+=======
+
+1,ales
+2,john
+3,julie
+
+download mysql connector jar:
+------------------------------
+
+Adding .jar file to kotlin project
+file->project structure->Modules->dependencies->
+Add(+)-> jars or directories->(browse to .jar file)->click apply->ok
+
+Insert query
+read quuery
+
+18-08-2022:
+============
+
+Update query
+
+Users:
+------
+  id    name   age    email    phone  city    state    country   pincode
+
+
+
+CRUD:
+-----
+    users-crud.kt
+
+create Database: demodb
+create table   : users
+manually perform sql queries in commandline
+
+
+insert
+select
+update
+delete
+===============================================
+create new project in Intellij with name  :MyDemoDBApp
+ path: file ->Add .jar file into the project
+compile and execute the users-crud.kt or users-crud.kts 
+
+
+Mysql commandline:
+
+create database demodb;
+
+create table users(id int not null auto_increment,name varchar(50),age int,email varchar(50),phone int,city varchar(50),state varchar(50),country varchar(50),pincode int,primary key(id));
+
+insert into users(id,name,age,email,phone,city,state,country,pincode)values(1,"anoop",18,"anoop@gmail.com",1234567890,"chennai","TN","India",638002);
+
+select * from users;
+
+insert into users(id,name,age,email,phone,city,state,country,pincode)values(2,"Roni",19,"roni@gmail.com",1234567891,"trichy","TN","India",638003);
+
+insert into users(id,name,age,email,phone,city,state,country,pincode)values(3,"sriraksha",23,"sriraksha@gmail.com",1234567892,"thoraipakam","TN","India",638004);
+
+insert into users(name,age,email,phone,city,state,country,pincode)values("bumrah",26,"bumrah@gmail.com",1234567893,"ahmedabad","GJ","India",638005);
+
+insert into users(name,age,email,phone,city,state,country,pincode)values("kohli",28,"kohli@gmail.com",1234567894,"delhi","DL","India",638006);
+
+select * from users;
+
+delete from users where id = 5;
+
+update users set city = "ECR" where id = 3;
+
+insert into users(name,age,email,phone,city,state,country,pincode)values("rohit",28,"rohit@gmail.com",1234567895,"hyderabad","AP","India",638007);
+
+
+
+

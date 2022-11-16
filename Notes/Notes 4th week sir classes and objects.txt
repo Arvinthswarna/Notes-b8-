@@ -1,0 +1,81 @@
+	Class and Objects
+
+	Functions:
+	---------
+		fun functionName(){
+		//stmts;
+		}
+
+		functionName()
+
+
+		Function with parameters
+		Returning values from a function
+		
+		Lambda Function:
+		----------------
+				Function with no name.
+				Defined with {} which takes variables as parameter and body of a function.
+				Syntax:
+				-------
+					{variable -> function_body}
+
+		AIC: Annonymous Inner Class
+
+		Kotlin Collections:
+		===================
+		Overview:	
+		---------
+				A collection contains a number of objects of the same type.
+				Objects in a collection are called elements or items.
+
+				Example:
+					All Employees in a company forms a collection.
+
+				Collection Types:
+				==================
+
+				1) Immutable collection (or collection)
+								Methods of immutable collection that supports read functionlities :
+
+
+						List  listOf():
+								List is an ordered collection with acess to elements by indices (integer numbers that reflect position).
+								Elements can occur more than once in a list.
+
+						Set    setOf():
+								Set is a collection of unique elements . It reflects the mathematical abstraction 
+								of set.(group of objects without repetations)
+
+						Map    mapOf():(or dictionary)
+								set of key-value pairs.Keys are unique and each of them maps to exactly one value.
+
+
+				2) Mutable Collection:
+						Mutable collections supports both read and write functionalities.
+						
+						List  ArrayList<T>()
+						      arrayListOf()
+						      mutuableListOf()
+
+
+						Map   HashMap
+						      hasMaoOf()
+						      MutableMapOf()
+
+
+						Set  hasSetOf()
+						     mutableSetOf()
+
+
+
+
+
+				
+
+					
+		
+
+
+
+		

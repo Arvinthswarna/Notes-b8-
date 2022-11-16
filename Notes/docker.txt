@@ -1,0 +1,107 @@
+Docker:
+--------
+
+   Installation
+
+   Hello World Execution
+ 
+   Docker --version
+
+   Docker run hello-world
+
+
+
+Configuration of spring project with docker:
+-----------------------------------------------
+
+1.Open spring project and make docker files configured in vs code
+
+2.Open that terminal in cmd where u have stored the docker project.
+
+3.dir
+
+4.docker-compose up -d
+
+Now ur project wil be configured in docker and up and running
+
+5.docker ps -a
+
+6.docker images
+
+7.docker-compose down  - service will be stopped.
+
+
+
+
+
+PUSHING IMAGE FROM DOCKER TO DOCKER HUB:
+===========================================
+
+Step 1: docker--->up and running
+
+Step 2:images should be created
+
+Step 3:create account in Dockerhub
+
+Step 4:Create a new repository with public access
+
+Step5: open cmd from that docker project folder
+    
+       login into docker ------->docker login
+
+Step 6:Create a tag:
+         
+           docker tag local-image-name username/new-created-repo-name:tagname
+
+Step 7:Push an image to docker hub:
+ 
+       docker push username/new-created-repo-name:tagname
+
+------------------------------------------------------------
+Finally image will be listed in docker hub after successful push.
+
+Now image is available for pull --->docker pull username/new-created-repo-name:tagname
+
+
+docker image prune --all --force   ====> The images will be deleted from docker app.After successful push that we can pull from dockerhub.
+
+
+
+Docker push commands:
+=====================
+
+docker login
+docker tag local-image-name username/new-created-repo-name:tagname
+docker push username/new-created-repo-name:tagname
+
+
+
+docker commands:
+================
+
+1.docker login 
+
+2.docker tag spring-db-app-docker-app arvinth97/docker-spring-app:myapp
+
+3.docker push arvinth97/docker-spring-app:myapp
+
+
+
+docker push for mysql image:
+================================
+
+1.docker login
+
+2.docker tag mysql:5.7 arvinth97/docker-spring-app:mydb
+
+3.docker push arvinth97/docker-spring-app:mydb
+
+4.docker images
+
+5.docker ps -a
+
+
+
+
+
+
